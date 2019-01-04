@@ -4,7 +4,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"reflect"
 )
@@ -81,11 +80,11 @@ var (
 
 //SetKey 는 airkorea에서 개인별로 지급되는 서비스 키로
 //키 파일을 별도로 만들어서 읽어온 뒤, 설정하도록 한다.
-//	if key, err := ioutil.ReadFile("key"); err != nil {
+//	if key.conf, err := ioutil.ReadFile("key.conf"); err != nil {
 //		log.Fatalln(err)
 //	} else {
-//		log.Println("Success loading service key")
-//		airkorea.SetKey(string(key))
+//		log.Println("Success loading service key.conf")
+//		airkorea.SetKey(string(key.conf))
 //	}
 func SetKey(s string) {
 	serviceKey = s
@@ -96,6 +95,10 @@ type Response struct {
 	XMLName xml.Name `xml:"response"`
 	Header  Header   `xml:"header"`
 	Body    Body     `xml:"body"`
+}
+
+func (r *Response) GetItem() []interface{} {
+	return r.Body.Items.Item
 }
 
 //Header 은 요청한 데이터의 결과를 나타낸다
@@ -185,7 +188,7 @@ func Get(s ServiceOperator) (*Response, error) {
 func request(s ServiceOperator) string {
 	str := fmt.Sprintf("%s/%s&ServiceKey=%s",
 		endPoint, s.RequestString(), serviceKey)
-	log.Println(str)
+	//log.Println(str)
 	return str
 }
 

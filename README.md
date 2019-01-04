@@ -11,10 +11,10 @@ $ put your private key
 ```
 키 파일 생성이 완료 되면 라이브러리를 사용하고자 하는 패키지에서 키를 읽어서 airkorea 패키지에 설정해주면 된다.
 ```go
-	if key, err := ioutil.ReadFile("key"); err != nil {
+	if key, err := ioutil.ReadFile(key.conf); err != nil {
 		log.Fatalln(err)
 	} else {
-		log.Println("Success loading service key")
+		log.Println(key.conf)
 		airkorea.SetKey(string(key))
 	}
 ```

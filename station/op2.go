@@ -11,7 +11,7 @@ type msrstnListResponseItem struct {
 	Address     string  `xml:"addr"`        //측정소가 위치한 주소
 	Year        int64   `xml:"year"`        //측정소 설치년도
 	Oper        string  `xml:"oper"`        //측정소 관리기관 이름
-	Photh       string  `xml:"photo"`       //측정소 이미지
+	Photo       string  `xml:"photo"`       //측정소 이미지
 	Vrml        string  `xml:"vrml"`        //측정소 주변 전경
 	Map         string  `xml:"map"`         //측정소가 설치된 장소 지도 이미지
 	ManageName  string  `xml:"mangName"`    //측정망
