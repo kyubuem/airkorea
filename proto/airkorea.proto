@@ -1,0 +1,326 @@
+syntax = "proto3";
+package ak_proto;
+
+service Forecaster {
+    rpc MeasureOp1Service (MeasureOp1Request) returns (MeasureOp1Response) {}
+    rpc MeasureOp2Service (MeasureOp2Request) returns (MeasureOp2Response) {}
+    rpc MeasureOp3Service (MeasureOp3Request) returns (MeasureOp3Response) {}
+    rpc MeasureOp4Service (MeasureOp4Request) returns (MeasureOp4Response) {}
+    rpc MeasureOp5Service (MeasureOp5Request) returns (MeasureOp5Response) {}
+    rpc MeasureOp6Service (MeasureOp6Request) returns (MeasureOp6Response) {}
+    rpc OccurrenceOp1Service (OccurrenceOp1Request) returns (OccurrenceOp1Response) {}
+    rpc OccurrenceOp2Service (OccurrenceOp2Request) returns (OccurrenceOp2Response) {}
+    rpc StationOp1Service (StationOp1Request) returns (StationOp1Response) {}
+    rpc StationOp2Service (StationOp2Request) returns (StationOp2Response) {}
+    rpc StationOp3Service (StationOp3Request) returns (StationOp3Response) {}
+    rpc StatisticsOp1Service (StatisticsOp1Request) returns (StatisticsOp1Response) {}
+    rpc StatisticsOp2Service (StatisticsOp2Request) returns (StatisticsOp2Response) {}
+}
+
+message MeasureOp1Request {
+    string station_name = 1;
+    string data_term = 2;
+    int64 page_no = 3;
+    int64 num_of_rows = 4;
+    string version = 5;
+}
+
+message MeasureOp1Response {
+    message Item {
+        string data_time = 1;
+        string manage_name = 2;
+        double so2_value = 3;
+        double co_value = 4;
+        double o3_value = 5;
+        double no2_value = 6;
+        int64 pm10_value = 7;
+        int64 pm10_value_24h = 8;
+        int64 pm25_value = 9;
+        int64 pm25_value_24h = 10;
+        int64 khai_value = 11;
+        int64 khai_grade = 12;
+        int64 so2_grade = 13;
+        int64 co_grade = 14;
+        int64 o3_grade = 15;
+        int64 no2_grade = 16;
+        int64 pm10_grade = 17;
+        int64 pm25_grade = 18;
+        int64 pm10_grade_1h = 19;
+        int64 pm25_grade_1h = 20;
+    }
+    repeated Item items = 1;
+}
+
+message MeasureOp2Request {
+    int64 page_no = 1;
+    int64 num_of_rows = 2;
+}
+
+message MeasureOp2Response {
+    message Item {
+        string station_name = 1;
+        string address = 2;
+    }
+    repeated Item items = 1;
+}
+
+message MeasureOp3Request {
+    string sido_name = 1;
+    int64 page_no = 2;
+    int64 num_of_rows = 3;
+    string version = 4;
+}
+
+message MeasureOp3Response {
+    message Item {
+        string station_name = 1;
+        string manage_name = 2;
+        string data_time = 3;
+        double so2_value = 4;
+        double co_value = 5;
+        double o3_value = 6;
+        double no2_value = 7;
+        int64 pm10_value = 8;
+        int64 pm10_value_24h = 9;
+        int64 pm25_value = 10;
+        int64 pm25_value_24h = 11;
+        int64 khai_value = 12;
+        int64 khai_grade = 13;
+        int64 so2_grade = 14;
+        int64 co_grade = 15;
+        int64 o3_grade = 16;
+        int64 no2_grade = 17;
+        int64 pm10_grade = 18;
+        int64 pm25_grade = 19;
+        int64 pm10_grade_1h = 20;
+        int64 pm25_grade_1h = 21;
+    }
+    repeated Item items = 1;
+}
+
+message MeasureOp4Request {
+    string search_date = 1;
+    string inform_code = 2;
+    int64 page_no = 3;
+    int64 num_of_rows = 4;
+    string version = 5;
+}
+
+message MeasureOp4Response {
+    message Item {
+        string data_time = 1;
+        string inform_code = 2;
+        string inform_overall = 3;
+        string inform_cause = 4;
+        string inform_grade = 5;
+        string action_knack = 6;
+        string image_url_1 = 7;
+        string image_url_2 = 8;
+        string image_url_3 = 9;
+        string image_url_4 = 10;
+        string image_url_5 = 11;
+        string image_url_6 = 12;
+        string image_url_7 = 13;
+        string image_url_8 = 14;
+        string image_url_9 = 15;
+        string inform_data = 16;
+    }
+    repeated Item items = 1;
+}
+
+message MeasureOp5Request {
+    string data_gubun = 1;
+    string search_condition = 2;
+    string item_code = 3;
+    int64 page_no = 4;
+    int64 num_of_rows = 5;
+}
+
+message MeasureOp5Response {
+    message Item {
+        string data_time = 1;
+        string item_code = 2;
+        string data_gubun = 3;
+        int64 seoul = 4;
+        int64 busan = 5;
+        int64 daegu = 6;
+        int64 incheon = 7;
+        int64 gwangju = 8;
+        int64 daejeon = 9;
+        int64 ulsan = 10;
+        int64 gyeonggi = 11;
+        int64 gangwon = 12;
+        int64 chungbuk = 13;
+        int64 chungnam = 14;
+        int64 jeonbuk = 15;
+        int64 jeonnam = 16;
+        int64 gyeongbuk = 17;
+        int64 gyeongnam = 18;
+        int64 jeju = 19;
+        int64 sejong = 20;
+    }
+    repeated Item items = 1;
+}
+
+message MeasureOp6Request {
+    string sido_name = 1;
+    string search_condition = 2;
+    int64 page_no = 3;
+    int64 num_of_rows = 4;
+}
+
+message MeasureOp6Response {
+    message Item {
+        string data_time = 1;
+        string city_name = 2;
+        double so2_value = 3;
+        double co_value = 4;
+        double o3_value = 5;
+        double no2_value = 6;
+        int64 pm10_value = 7;
+        int64 pm25_value = 8;
+    }
+    repeated Item items = 1;
+}
+
+message OccurrenceOp1Request {
+    int64 year = 1;
+    int64 page_no = 2;
+    int64 num_of_rows = 3;
+}
+
+message OccurrenceOp1Response {
+    message Item {
+        string data_time = 1;
+        string district_name = 2;
+        string move_name = 3;
+        string issue_time = 4;
+        double issue_val = 5;
+        string clear_time = 6;
+        double clear_val = 7;
+        double max_val = 8;
+    }
+    repeated Item items = 1;
+}
+
+message OccurrenceOp2Request {
+    int64 year = 1;
+    int64 page_no = 2;
+    int64 num_of_rows = 3;
+}
+
+message OccurrenceOp2Response {
+    message Item {
+        string data_time = 1;
+        int64 tm_cnt = 2;
+        string tm_area = 3;
+    }
+    repeated Item items = 1;
+}
+
+message StationOp1Request {
+    string tm_x = 1;
+    string tm_y = 2;
+    int64 page_no = 3;
+    int64 num_of_rows = 4;
+    string version = 5;
+}
+
+message StationOp1Response {
+    message Item {
+        string station_name = 1;
+        string address = 2;
+        double tm = 3;
+    }
+    repeated Item items = 1;
+}
+
+message StationOp2Request {
+    string station_name = 1;
+    string address = 2;
+    int64 page_no = 3;
+    int64 num_of_rows = 4;
+}
+
+message StationOp2Response {
+    message Item {
+        string station_name = 1;
+        string address = 2;
+        int64 year = 3;
+        string oper = 4;
+        string photo = 5;
+        string vrml = 6;
+        string map = 7;
+        string manage_name = 8;
+        string item = 9;
+        double dm_x = 10;
+        double dm_y = 11;
+    }
+    repeated Item items = 1;
+}
+
+message StationOp3Request {
+    string umd_name = 1;
+    int64 page_no = 2;
+    int64 num_of_rows = 3;
+}
+
+message StationOp3Response {
+    message Item {
+        string sido_name = 1;
+        string sgg_name = 2;
+        string umd_name = 3;
+        double tm_x = 4;
+        double tm_y = 5;
+    }
+    repeated Item items = 1;
+}
+
+message StatisticsOp1Request {
+    string station_name = 1;
+    string search_condition = 2;
+    int64 page_no = 3;
+    int64 num_of_rows = 4;
+}
+
+message StatisticsOp1Response {
+    message Item {
+        string data_time = 1;
+        double so2_average = 2;
+        double co_average = 3;
+        double o3_average = 4;
+        double no2_average = 5;
+        int64 pm10_average = 6;
+    }
+    repeated Item items = 1;
+}
+
+message StatisticsOp2Request {
+    string search_data_time = 1;
+    string stat_article_condition = 2;
+    int64 page_no = 3;
+    int64 num_of_rows = 4;
+}
+
+message StatisticsOp2Response {
+    message Item {
+        string sido_name = 1;
+        string data_time = 2;
+        double so2_average = 3;
+        double co_average = 4;
+        double o3_average = 5;
+        double no2_average = 6;
+        int64 pm10_average = 7;
+        double so2_max = 8;
+        double co_max = 9;
+        double o3_max = 10;
+        double no2_max = 11;
+        int64 pm10_max = 12;
+        double so2_min = 13;
+        double co_min = 14;
+        double o3_min = 15;
+        double no2_min = 16;
+        int64 pm10_min = 17;
+    }
+    repeated Item items = 1;
+}

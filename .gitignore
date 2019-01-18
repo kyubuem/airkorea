@@ -1,0 +1,3 @@
+proto/ak-go/*
+cmd/server/server
+cmd/server/key.conf
