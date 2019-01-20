@@ -1,3 +1,4 @@
-proto/ak-go/*
 cmd/server/server
 cmd/server/key.conf
+go.sum
+vendor/*
